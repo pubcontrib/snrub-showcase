@@ -1,0 +1,55 @@
+`
+  This script will match numbers that are between 1000 and 999999.
+`
+
+("-->" "_source" ("<--" "@"))
+("-->" "_destination" ?)
+
+("?"
+  ("&" (">" ("<--" "_source") #999#) ("<" ("<--" "_source") #1000000#))
+  ("..."
+    ("-->" "_whole-5" ("\"" ("<--" "_source")))
+
+    `Find the leading word`
+    ("-->" "_leading-digit"
+      ("#" 
+        ("[# #]" 
+          ("<--" "_whole-5") 
+          #1# 
+          ("-" ("| |" ("<--" "_whole-5")) #3#)
+        )
+      )
+    )
+
+    ("~" ("<--" "persist") [ "class1" ("<--" "_leading-digit") "_leading-word" ])
+    ("~" ("<--" "persist") [ "class2" ("<--" "_leading-digit") "_leading-word" ])
+    ("~" ("<--" "persist") [ "class3" ("<--" "_leading-digit") "_leading-word" ])
+    ("~" ("<--" "persist") [ "class4" ("<--" "_leading-digit") "_leading-word" ])
+
+    `Find the trailing word`
+    ("-->" "_trailing-digit"
+      ("#"
+        ("[# #]" 
+          ("<--" "_whole-5") 
+          ("-" ("| |" ("<--" "_whole-5")) #2#)
+          ("| |" ("<--" "_whole-5"))
+        )
+      )
+    )
+
+    ("~" ("<--" "persist") [ "class1" ("<--" "_trailing-digit") "_trailing-word" ])
+    ("~" ("<--" "persist") [ "class2" ("<--" "_trailing-digit") "_trailing-word" ])
+    ("~" ("<--" "persist") [ "class3" ("<--" "_trailing-digit") "_trailing-word" ])
+    ("~" ("<--" "persist") [ "class4" ("<--" "_trailing-digit") "_trailing-word" ])
+
+    `Combine words`
+    ("?"
+      ("=" ("<--" "_trailing-digit") #0#)
+      ("-->" "_destination" ("+" ("<--" "_leading-word") " thousand"))
+      ("-->" "_destination" ("+" ("<--" "_leading-word") ("+" " thousand, " ("<--" "_trailing-word")))) 
+    )
+  )
+  ?
+)
+
+("<--" "_destination")

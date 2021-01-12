@@ -1,0 +1,12 @@
+`
+  This script will set a destination variable when a source matches.
+`
+
+("-->" "_number" ("[#]" ("<--" "@") #1#))
+("-->" "_text" ("[#]" ("<--" "@") #2#))
+
+("?" 
+  ("=" ("<--" "_source") ("<--" "_number"))
+  ("-->" "_destination" ("<--" "_text"))
+  ?
+)

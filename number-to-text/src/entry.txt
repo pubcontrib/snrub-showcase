@@ -1,0 +1,29 @@
+`
+  This script will take a integer and return it in numeral form.
+`
+
+`Initialize variables`
+("-->" "number" ("<--" "@"))
+
+`Cache sub-script`
+("-->" "class1" ("^" "class1.txt")) `[0-9]`
+("-->" "class2" ("^" "class2.txt")) `[10-19]`
+("-->" "class3" ("^" "class3.txt")) `[20-99]`
+("-->" "class4" ("^" "class4.txt")) `[100-999]`
+("-->" "class5" ("^" "class5.txt")) `[1000-999999]`
+("-->" "match" ("^" "match.txt"))
+("-->" "persist" ("^" "persist.txt"))
+
+`Run each sub-script for pattern matching`
+("~" ("<--" "persist") [ "class1" ("<--" "number") "text" ])
+("~" ("<--" "persist") [ "class2" ("<--" "number") "text" ])
+("~" ("<--" "persist") [ "class3" ("<--" "number") "text" ])
+("~" ("<--" "persist") [ "class4" ("<--" "number") "text" ])
+("~" ("<--" "persist") [ "class5" ("<--" "number") "text" ])
+
+`TODO: Million, Billion`
+`TODO: Negative`
+`TODO: Generalize depth logic`
+
+`Conclusion`
+("<--" "text")

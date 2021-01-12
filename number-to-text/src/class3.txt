@@ -1,0 +1,42 @@
+`
+  This script will match numbers that are between 20 and 99.
+`
+
+("-->" "_source" ("<--" "@"))
+("-->" "_destination" ?)
+
+("?"
+  ("&" (">" ("<--" "_source") #19#) ("<" ("<--" "_source") #100#))
+  ("..."
+    ("-->" "_whole" ("\"" ("<--" "_source")))
+
+    `Find the tens word`
+    ("-->" "_ten-digit" ("#" ("[#]" ("<--" "_whole") #1#)))
+
+    ("-->" "_source" ("<--" "_ten-digit"))
+    ("~" ("<--" "match") [ #2# "twenty" ])
+    ("~" ("<--" "match") [ #3# "thirty" ])
+    ("~" ("<--" "match") [ #4# "forty" ])
+    ("~" ("<--" "match") [ #5# "fifty" ])
+    ("~" ("<--" "match") [ #6# "sixty" ])
+    ("~" ("<--" "match") [ #7# "seventy" ])
+    ("~" ("<--" "match") [ #8# "eighty" ])
+    ("~" ("<--" "match") [ #9# "ninety" ])
+    ("-->" "_ten-word" ("<--" "_destination"))
+
+    `Find the ones word`
+    ("-->" "_one-digit" ("#" ("[#]" ("<--" "_whole") #2#)))
+
+    ("~" ("<--" "persist") [ "class1" ("<--" "_one-digit") "_one-word" ])
+    
+    `Combine words`
+    ("?"
+      ("=" ("<--" "_one-digit") #0#)
+      ("-->" "_destination" ("<--" "_ten-word"))
+      ("-->" "_destination" ("+" ("<--" "_ten-word") ("+" "-" ("<--" "_one-word")))) 
+    )
+  )
+  ?
+)
+
+("<--" "_destination")

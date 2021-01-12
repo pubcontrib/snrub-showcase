@@ -1,0 +1,32 @@
+`
+  This script will run a class sub-script and save the outcome to a variable if a value is returned.
+`
+
+`Maintain the call depth of this sub-script`
+("?"
+  ("=" ("<--" "persist-depth") ?)
+  ("-->" "persist-depth" #1#)
+  ("-->" "persist-depth" ("+" ("<--" "persist-depth") #1#))
+)
+
+("-->" ("+" "_class" ("\"" ("<--" "persist-depth"))) ("[#]" ("<--" "@") #1#))
+("-->" ("+" "_arguments" ("\"" ("<--" "persist-depth"))) ("[#]" ("<--" "@") #2#))
+("-->" ("+" "_slot" ("\"" ("<--" "persist-depth"))) ("[#]" ("<--" "@") #3#))
+
+`Run the class and remember the outcome`
+("-->" 
+  "_outcome" 
+  ("~" 
+    ("<--" ("<--" ("+" "_class" ("\"" ("<--" "persist-depth")))))
+    ("<--" ("+" "_arguments" ("\"" ("<--" "persist-depth"))))
+  )
+)
+
+`Only update the variable if an outcome was found`
+("?"
+  ("=" ("<--" "_outcome") ?)
+  ?
+  ("-->" ("<--" ("+" "_slot" ("\"" ("<--" "persist-depth")))) ("<--" "_outcome"))
+)
+
+("-->" "persist-depth" ("-" ("<--" "persist-depth") #1#))

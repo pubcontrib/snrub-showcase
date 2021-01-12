@@ -1,0 +1,19 @@
+`
+  This script will match numbers that are between 10 and 19.
+`
+
+("-->" "_source" ("<--" "@"))
+("-->" "_destination" ?)
+
+("~" ("<--" "match") [ #10# "ten" ])
+("~" ("<--" "match") [ #11# "eleven" ])
+("~" ("<--" "match") [ #12# "twelve" ])
+("~" ("<--" "match") [ #13# "thirteen" ])
+("~" ("<--" "match") [ #14# "fourteen" ])
+("~" ("<--" "match") [ #15# "fifteen" ])
+("~" ("<--" "match") [ #16# "sixteen" ])
+("~" ("<--" "match") [ #17# "seventeen" ])
+("~" ("<--" "match") [ #18# "eighteen" ])
+("~" ("<--" "match") [ #19# "nineteen" ])
+
+("<--" "_destination")
