@@ -14,9 +14,9 @@
 ("-->" ("+" "_slot" ("\"" ("<--" "persist-depth"))) ("[#]" ("<--" "@") #3#))
 
 `Run the class and remember the outcome`
-("-->" 
-  "_outcome" 
-  ("~" 
+("-->"
+  "_outcome"
+  ("~"
     ("<--" ("<--" ("+" "_class" ("\"" ("<--" "persist-depth")))))
     ("<--" ("+" "_arguments" ("\"" ("<--" "persist-depth"))))
   )

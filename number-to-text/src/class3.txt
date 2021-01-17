@@ -28,12 +28,12 @@
     ("-->" "_one-digit" ("#" ("[#]" ("<--" "_whole") #2#)))
 
     ("~" ("<--" "persist") [ "class1" ("<--" "_one-digit") "_one-word" ])
-    
+
     `Combine words`
     ("?"
       ("=" ("<--" "_one-digit") #0#)
       ("-->" "_destination" ("<--" "_ten-word"))
-      ("-->" "_destination" ("+" ("<--" "_ten-word") ("+" "-" ("<--" "_one-word")))) 
+      ("-->" "_destination" ("+" ("<--" "_ten-word") ("+" "-" ("<--" "_one-word"))))
     )
   )
   ?

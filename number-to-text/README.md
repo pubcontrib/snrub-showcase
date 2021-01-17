@@ -7,4 +7,4 @@ English text.
 sh run-linux.sh
 ```
 
-Last tested with Snrub version `v0.50.2`.
+Last tested with Snrub version `v0.50.3`.

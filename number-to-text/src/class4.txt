@@ -21,12 +21,12 @@
     ("~" ("<--" "persist") [ "class1" ("<--" "_ten-digit") "_ten-word" ])
     ("~" ("<--" "persist") [ "class2" ("<--" "_ten-digit") "_ten-word" ])
     ("~" ("<--" "persist") [ "class3" ("<--" "_ten-digit") "_ten-word" ])
-    
+
     `Combine words`
     ("?"
       ("=" ("<--" "_ten-digit") #0#)
       ("-->" "_destination" ("+" ("<--" "_hundred-word") " hundred"))
-      ("-->" "_destination" ("+" ("<--" "_hundred-word") ("+" " hundred " ("<--" "_ten-word")))) 
+      ("-->" "_destination" ("+" ("<--" "_hundred-word") ("+" " hundred " ("<--" "_ten-word"))))
     )
   )
   ?

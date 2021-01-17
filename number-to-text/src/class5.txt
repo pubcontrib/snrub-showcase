@@ -12,10 +12,10 @@
 
     `Find the leading word`
     ("-->" "_leading-digit"
-      ("#" 
-        ("[# #]" 
-          ("<--" "_whole-5") 
-          #1# 
+      ("#"
+        ("[# #]"
+          ("<--" "_whole-5")
+          #1#
           ("-" ("| |" ("<--" "_whole-5")) #3#)
         )
       )
@@ -29,8 +29,8 @@
     `Find the trailing word`
     ("-->" "_trailing-digit"
       ("#"
-        ("[# #]" 
-          ("<--" "_whole-5") 
+        ("[# #]"
+          ("<--" "_whole-5")
           ("-" ("| |" ("<--" "_whole-5")) #2#)
           ("| |" ("<--" "_whole-5"))
         )
@@ -46,7 +46,7 @@
     ("?"
       ("=" ("<--" "_trailing-digit") #0#)
       ("-->" "_destination" ("+" ("<--" "_leading-word") " thousand"))
-      ("-->" "_destination" ("+" ("<--" "_leading-word") ("+" " thousand, " ("<--" "_trailing-word")))) 
+      ("-->" "_destination" ("+" ("<--" "_leading-word") ("+" " thousand, " ("<--" "_trailing-word"))))
     )
   )
   ?

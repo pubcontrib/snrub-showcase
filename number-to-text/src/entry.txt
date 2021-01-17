@@ -1,5 +1,5 @@
 `
-  This script will take a integer and return it in numeral form.
+  This script will take an integer and return it in numeral form.
 `
 
 `Initialize variables`
