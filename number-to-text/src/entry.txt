@@ -4,6 +4,7 @@
 
 `Initialize variables`
 ("-->" "number" ("<--" "@"))
+("-->" "text" "")
 
 `Cache sub-script`
 ("-->" "class1" ("^" "class1.txt")) `[0-9]`
@@ -14,6 +15,16 @@
 ("-->" "match" ("^" "match.txt"))
 ("-->" "persist" ("^" "persist.txt"))
 
+`Promote global variables`
+("<3" "text")
+("<3" "class1")
+("<3" "class2")
+("<3" "class3")
+("<3" "class4")
+("<3" "class5")
+("<3" "match")
+("<3" "persist")
+
 `Run each sub-script for pattern matching`
 ("~" ("<--" "persist") [ "class1" ("<--" "number") "text" ])
 ("~" ("<--" "persist") [ "class2" ("<--" "number") "text" ])
@@ -23,7 +34,6 @@
 
 `TODO: Million, Billion`
 `TODO: Negative`
-`TODO: Generalize depth logic`
 
 `Conclusion`
 ("<--" "text")

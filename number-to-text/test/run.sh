@@ -36,14 +36,35 @@ cd "$src"
 
 assert 0 zero
 assert 1 one
+assert 2 two
+assert 3 three
+assert 4 four
 assert 5 five
+assert 6 six
+assert 7 seven
+assert 8 eight
+assert 9 nine
 assert 10 ten
+assert 11 eleven
+assert 12 twelve
+assert 13 thirteen
+assert 14 fourteen
 assert 15 fifteen
+assert 16 sixteen
+assert 17 seventeen
+assert 18 eighteen
+assert 19 nineteen
 assert 20 twenty
 assert 21 twenty-one
 assert 25 twenty-five
+assert 30 thirty
+assert 40 forty
 assert 50 fifty
 assert 55 fifty-five
+assert 60 sixty
+assert 70 seventy
+assert 80 eighty
+assert 90 ninety
 assert 100 'one hundred'
 assert 101 'one hundred one'
 assert 105 'one hundred five'
@@ -91,6 +112,7 @@ assert 200121 'two hundred thousand, one hundred twenty-one'
 assert 200125 'two hundred thousand, one hundred twenty-five'
 assert 200150 'two hundred thousand, one hundred fifty'
 assert 200155 'two hundred thousand, one hundred fifty-five'
+assert 987654 'nine hundred eighty-seven thousand, six hundred fifty-four'
 assert 999999 'nine hundred ninety-nine thousand, nine hundred ninety-nine'
 
 printf '%d tests run.\n' $count

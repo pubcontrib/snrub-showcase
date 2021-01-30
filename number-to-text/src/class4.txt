@@ -2,34 +2,36 @@
   This script will match numbers that are between 100 and 999.
 `
 
-("-->" "_source" ("<--" "@"))
-("-->" "_destination" ?)
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "_source") #99#) ("<" ("<--" "_source") #1000#))
+  ("&" (">" ("<--" "source") #99#) ("<" ("<--" "source") #1000#))
   ("..."
-    ("-->" "_whole" ("\"" ("<--" "_source")))
-
     `Find the hundreds word`
-    ("-->" "_hundred-digit" ("#" ("[#]" ("<--" "_whole") #1#)))
-
-    ("~" ("<--" "persist") [ "class1" ("<--" "_hundred-digit") "_hundred-word" ])
+    ("-->" "hundred-digit" ("#" ("[#]" ("\"" ("<--" "source")) #1#)))
+    ("-->" "hundred-word" "")
+    ("<3" "hundred-word")
+    ("~" ("<--" "persist") [ "class1" ("<--" "hundred-digit") "hundred-word" ])
+    ("</3" "hundred-word")
 
     `Find the tens word`
-    ("-->" "_ten-digit" ("#" ("[# #]" ("<--" "_whole") #2# #3#)))
-
-    ("~" ("<--" "persist") [ "class1" ("<--" "_ten-digit") "_ten-word" ])
-    ("~" ("<--" "persist") [ "class2" ("<--" "_ten-digit") "_ten-word" ])
-    ("~" ("<--" "persist") [ "class3" ("<--" "_ten-digit") "_ten-word" ])
+    ("-->" "ten-digit" ("#" ("[# #]" ("\"" ("<--" "source")) #2# #3#)))
+    ("-->" "ten-word" "")
+    ("<3" "ten-word")
+    ("~" ("<--" "persist") [ "class1" ("<--" "ten-digit") "ten-word" ])
+    ("~" ("<--" "persist") [ "class2" ("<--" "ten-digit") "ten-word" ])
+    ("~" ("<--" "persist") [ "class3" ("<--" "ten-digit") "ten-word" ])
+    ("</3" "ten-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "_ten-digit") #0#)
-      ("-->" "_destination" ("+" ("<--" "_hundred-word") " hundred"))
-      ("-->" "_destination" ("+" ("<--" "_hundred-word") ("+" " hundred " ("<--" "_ten-word"))))
+      ("=" ("<--" "ten-digit") #0#)
+      ("-->" "destination" ("+" ("<--" "hundred-word") " hundred"))
+      ("-->" "destination" ("+" ("<--" "hundred-word") ("+" " hundred " ("<--" "ten-word"))))
     )
   )
   ?
 )
 
-("<--" "_destination")
+("<--" "destination")

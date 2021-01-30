@@ -2,54 +2,60 @@
   This script will match numbers that are between 1000 and 999999.
 `
 
-("-->" "_source" ("<--" "@"))
-("-->" "_destination" ?)
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "_source") #999#) ("<" ("<--" "_source") #1000000#))
+  ("&" (">" ("<--" "source") #999#) ("<" ("<--" "source") #1000000#))
   ("..."
-    ("-->" "_whole-5" ("\"" ("<--" "_source")))
+    ("-->" "length" ("| |" ("\"" ("<--" "source"))))
 
     `Find the leading word`
-    ("-->" "_leading-digit"
+    ("-->" "leading-digit"
       ("#"
         ("[# #]"
-          ("<--" "_whole-5")
+          ("\"" ("<--" "source"))
           #1#
-          ("-" ("| |" ("<--" "_whole-5")) #3#)
+          ("-" ("<--" "length") #3#)
         )
       )
     )
 
-    ("~" ("<--" "persist") [ "class1" ("<--" "_leading-digit") "_leading-word" ])
-    ("~" ("<--" "persist") [ "class2" ("<--" "_leading-digit") "_leading-word" ])
-    ("~" ("<--" "persist") [ "class3" ("<--" "_leading-digit") "_leading-word" ])
-    ("~" ("<--" "persist") [ "class4" ("<--" "_leading-digit") "_leading-word" ])
+    ("-->" "leading-word" "")
+    ("<3" "leading-word")
+    ("~" ("<--" "persist") [ "class1" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "persist") [ "class2" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "persist") [ "class3" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "persist") [ "class4" ("<--" "leading-digit") "leading-word" ])
+    ("</3" "leading-word")
 
     `Find the trailing word`
-    ("-->" "_trailing-digit"
+    ("-->" "trailing-digit"
       ("#"
         ("[# #]"
-          ("<--" "_whole-5")
-          ("-" ("| |" ("<--" "_whole-5")) #2#)
-          ("| |" ("<--" "_whole-5"))
+          ("\"" ("<--" "source"))
+          ("-" ("<--" "length") #2#)
+          ("<--" "length")
         )
       )
     )
 
-    ("~" ("<--" "persist") [ "class1" ("<--" "_trailing-digit") "_trailing-word" ])
-    ("~" ("<--" "persist") [ "class2" ("<--" "_trailing-digit") "_trailing-word" ])
-    ("~" ("<--" "persist") [ "class3" ("<--" "_trailing-digit") "_trailing-word" ])
-    ("~" ("<--" "persist") [ "class4" ("<--" "_trailing-digit") "_trailing-word" ])
+    ("-->" "trailing-word" "")
+    ("<3" "trailing-word")
+    ("~" ("<--" "persist") [ "class1" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "persist") [ "class2" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "persist") [ "class3" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "persist") [ "class4" ("<--" "trailing-digit") "trailing-word" ])
+    ("</3" "trailing-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "_trailing-digit") #0#)
-      ("-->" "_destination" ("+" ("<--" "_leading-word") " thousand"))
-      ("-->" "_destination" ("+" ("<--" "_leading-word") ("+" " thousand, " ("<--" "_trailing-word"))))
+      ("=" ("<--" "trailing-digit") #0#)
+      ("-->" "destination" ("+" ("<--" "leading-word") " thousand"))
+      ("-->" "destination" ("+" ("<--" "leading-word") ("+" " thousand, " ("<--" "trailing-word"))))
     )
   )
   ?
 )
 
-("<--" "_destination")
+("<--" "destination")
