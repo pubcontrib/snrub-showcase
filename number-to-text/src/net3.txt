@@ -1,0 +1,45 @@
+`
+  This script will match numbers that are between 20 and 99.
+`
+
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
+
+("?"
+  ("&" (">" ("<--" "source") #19#) ("<" ("<--" "source") #100#))
+  ("..."
+    `Find the tens word`
+    ("-->" "tens-digit" ("#" ("[#]" ("\"" ("<--" "source")) #1#)))
+    ("-->" "temporary" ("<--" "source"))
+    ("-->" "source" ("<--" "tens-digit"))
+    ("<3" "source") ("<3" "destination")
+    ("~" ("<--" "pick") [ #2# "twenty" ])
+    ("~" ("<--" "pick") [ #3# "thirty" ])
+    ("~" ("<--" "pick") [ #4# "forty" ])
+    ("~" ("<--" "pick") [ #5# "fifty" ])
+    ("~" ("<--" "pick") [ #6# "sixty" ])
+    ("~" ("<--" "pick") [ #7# "seventy" ])
+    ("~" ("<--" "pick") [ #8# "eighty" ])
+    ("~" ("<--" "pick") [ #9# "ninety" ])
+    ("</3" "source") ("</3" "destination")
+    ("-->" "tens-word" ("<--" "destination"))
+    ("-->" "source" ("<--" "temporary"))
+
+    `Find the ones word`
+    ("-->" "ones-digit" ("#" ("[#]" ("\"" ("<--" "source")) #2#)))
+    ("-->" "ones-word" "")
+    ("<3" "ones-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "ones-digit") "ones-word" ])
+    ("</3" "ones-word")
+
+    `Combine words`
+    ("?"
+      ("=" ("<--" "ones-digit") #0#)
+      ("-->" "destination" ("<--" "tens-word"))
+      ("-->" "destination" ("+" ("<--" "tens-word") ("+" "-" ("<--" "ones-word"))))
+    )
+  )
+  ?
+)
+
+("<--" "destination")

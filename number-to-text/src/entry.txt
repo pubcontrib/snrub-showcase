@@ -2,38 +2,25 @@
   This script will take an integer and return it in numeral form.
 `
 
-`Initialize variables`
+`Store program arguments`
 ("-->" "number" ("<--" "@"))
-("-->" "text" "")
 
-`Cache sub-script`
-("-->" "class1" ("^" "class1.txt")) `[0-9]`
-("-->" "class2" ("^" "class2.txt")) `[10-19]`
-("-->" "class3" ("^" "class3.txt")) `[20-99]`
-("-->" "class4" ("^" "class4.txt")) `[100-999]`
-("-->" "class5" ("^" "class5.txt")) `[1000-999999]`
-("-->" "match" ("^" "match.txt"))
-("-->" "persist" ("^" "persist.txt"))
+`Cache sub-scripts to avoid repeated file reads`
+("-->" "net1" ("^" "net1.txt")) ("<3" "net1")
+("-->" "net2" ("^" "net2.txt")) ("<3" "net2")
+("-->" "net3" ("^" "net3.txt")) ("<3" "net3")
+("-->" "net4" ("^" "net4.txt")) ("<3" "net4")
+("-->" "net5" ("^" "net5.txt")) ("<3" "net5")
+("-->" "pick" ("^" "pick.txt")) ("<3" "pick")
+("-->" "trawl" ("^" "trawl.txt")) ("<3" "trawl")
 
-`Promote global variables`
-("<3" "text")
-("<3" "class1")
-("<3" "class2")
-("<3" "class3")
-("<3" "class4")
-("<3" "class5")
-("<3" "match")
-("<3" "persist")
+`Run each sub-script as a net to match numbers within their ranges`
+("-->" "text" "") ("<3" "text")
+("~" ("<--" "trawl") [ "net1" ("<--" "number") "text" ]) `[0-9]`
+("~" ("<--" "trawl") [ "net2" ("<--" "number") "text" ]) `[10-19]`
+("~" ("<--" "trawl") [ "net3" ("<--" "number") "text" ]) `[20-99]`
+("~" ("<--" "trawl") [ "net4" ("<--" "number") "text" ]) `[100-999]`
+("~" ("<--" "trawl") [ "net5" ("<--" "number") "text" ]) `[1000-999999]`
 
-`Run each sub-script for pattern matching`
-("~" ("<--" "persist") [ "class1" ("<--" "number") "text" ])
-("~" ("<--" "persist") [ "class2" ("<--" "number") "text" ])
-("~" ("<--" "persist") [ "class3" ("<--" "number") "text" ])
-("~" ("<--" "persist") [ "class4" ("<--" "number") "text" ])
-("~" ("<--" "persist") [ "class5" ("<--" "number") "text" ])
-
-`TODO: Million, Billion`
-`TODO: Negative`
-
-`Conclusion`
+`Return any matched text`
 ("<--" "text")

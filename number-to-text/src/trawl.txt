@@ -1,0 +1,11 @@
+`
+  This script will run a sub-script and set any catches to a global variable.
+`
+
+("-->" "net" ("[#]" ("<--" "@") #1#))
+("-->" "bait" ("[#]" ("<--" "@") #2#))
+("-->" "icebox" ("[#]" ("<--" "@") #3#))
+
+("-->" "catch" ("~" ("<--" ("<--" "net")) ("<--" "bait")))
+
+("?" ("=" ("<--" "catch") "") ? ("-->" ("<--" "icebox") ("<--" "catch")))

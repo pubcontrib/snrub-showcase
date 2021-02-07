@@ -1,0 +1,37 @@
+`
+  This script will match numbers that are between 100 and 999.
+`
+
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
+
+("?"
+  ("&" (">" ("<--" "source") #99#) ("<" ("<--" "source") #1000#))
+  ("..."
+    `Find the hundreds word`
+    ("-->" "hundreds-digit" ("#" ("[#]" ("\"" ("<--" "source")) #1#)))
+    ("-->" "hundreds-word" "")
+    ("<3" "hundreds-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "hundreds-digit") "hundreds-word" ])
+    ("</3" "hundreds-word")
+
+    `Find the tens word`
+    ("-->" "tens-digit" ("#" ("[# #]" ("\"" ("<--" "source")) #2# #3#)))
+    ("-->" "tens-word" "")
+    ("<3" "tens-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "tens-digit") "tens-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "tens-digit") "tens-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "tens-digit") "tens-word" ])
+    ("</3" "tens-word")
+
+    `Combine words`
+    ("?"
+      ("=" ("<--" "tens-digit") #0#)
+      ("-->" "destination" ("+" ("<--" "hundreds-word") " hundred"))
+      ("-->" "destination" ("+" ("<--" "hundreds-word") ("+" " hundred " ("<--" "tens-word"))))
+    )
+  )
+  ?
+)
+
+("<--" "destination")

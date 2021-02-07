@@ -1,0 +1,28 @@
+`
+  This script will match numbers that are between 0 and 9.
+`
+
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
+
+("?"
+  ("&" (">" ("<--" "source") #-1#) ("<" ("<--" "source") #10#))
+  ("..."
+    `Find the ones word`
+    ("<3" "source") ("<3" "destination")
+    ("~" ("<--" "pick") [ #0# "zero" ])
+    ("~" ("<--" "pick") [ #1# "one" ])
+    ("~" ("<--" "pick") [ #2# "two" ])
+    ("~" ("<--" "pick") [ #3# "three" ])
+    ("~" ("<--" "pick") [ #4# "four" ])
+    ("~" ("<--" "pick") [ #5# "five" ])
+    ("~" ("<--" "pick") [ #6# "six" ])
+    ("~" ("<--" "pick") [ #7# "seven" ])
+    ("~" ("<--" "pick") [ #8# "eight" ])
+    ("~" ("<--" "pick") [ #9# "nine" ])
+    ("</3" "source") ("</3" "destination")
+  )
+  ?
+)
+
+("<--" "destination")

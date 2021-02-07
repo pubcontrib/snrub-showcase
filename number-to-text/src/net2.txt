@@ -1,0 +1,28 @@
+`
+  This script will match numbers that are between 10 and 19.
+`
+
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
+
+("?"
+  ("&" (">" ("<--" "source") #9#) ("<" ("<--" "source") #20#))
+  ("..."
+    `Find the tens word`
+    ("<3" "source") ("<3" "destination")
+    ("~" ("<--" "pick") [ #10# "ten" ])
+    ("~" ("<--" "pick") [ #11# "eleven" ])
+    ("~" ("<--" "pick") [ #12# "twelve" ])
+    ("~" ("<--" "pick") [ #13# "thirteen" ])
+    ("~" ("<--" "pick") [ #14# "fourteen" ])
+    ("~" ("<--" "pick") [ #15# "fifteen" ])
+    ("~" ("<--" "pick") [ #16# "sixteen" ])
+    ("~" ("<--" "pick") [ #17# "seventeen" ])
+    ("~" ("<--" "pick") [ #18# "eighteen" ])
+    ("~" ("<--" "pick") [ #19# "nineteen" ])
+    ("</3" "source") ("</3" "destination")
+  )
+  ?
+)
+
+("<--" "destination")

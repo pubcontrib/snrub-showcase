@@ -23,10 +23,10 @@
 
     ("-->" "leading-word" "")
     ("<3" "leading-word")
-    ("~" ("<--" "persist") [ "class1" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "persist") [ "class2" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "persist") [ "class3" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "persist") [ "class4" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "trawl") [ "net1" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "leading-digit") "leading-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "leading-digit") "leading-word" ])
     ("</3" "leading-word")
 
     `Find the trailing word`
@@ -42,10 +42,10 @@
 
     ("-->" "trailing-word" "")
     ("<3" "trailing-word")
-    ("~" ("<--" "persist") [ "class1" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "persist") [ "class2" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "persist") [ "class3" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "persist") [ "class4" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "trawl") [ "net1" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "trailing-digit") "trailing-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "trailing-digit") "trailing-word" ])
     ("</3" "trailing-word")
 
     `Combine words`

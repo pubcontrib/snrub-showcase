@@ -1,5 +1,5 @@
 `
-  This script will set a destination variable when a source matches.
+  This script used to test and set global variables when local objects matches.
 `
 
 ("-->" "number" ("[#]" ("<--" "@") #1#))
