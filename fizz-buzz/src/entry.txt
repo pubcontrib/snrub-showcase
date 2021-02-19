@@ -1,0 +1,48 @@
+`
+  Program which takes a counting number (0, 1, 2, ...) and returns that many
+  turns in the game of FizzBuzz.
+`
+
+`Store program arguments`
+("-->" "goal" ("<--" "@"))
+
+`Error if the goal is negative`
+("?" ("<" ("<--" "goal") #0#) ("<>" #3#) ?)
+
+`Run all turns of the game storing each response in-order`
+("-->" "turn" #1#)
+("-->" "responses" [])
+
+("o"
+  ("<" ("<--" "turn") ("+" ("<--" "goal") #1#))
+  ("..."
+    `Store divisiblity tests`
+    ("-->" "/3" ("!" ("%" ("<--" "turn") #3#)))
+    ("-->" "/5" ("!" ("%" ("<--" "turn") #5#)))
+
+    `Ask the response for the current turn`
+    ("-->"
+      "response"
+      ("?"
+        ("&" ("<--" "/3") ("<--" "/5"))
+        "Fizz Buzz"
+        ("?"
+          ("<--" "/3")
+          "Fizz"
+          ("?"
+            ("<--" "/5")
+            "Buzz"
+            ("\"" ("<--" "turn"))
+          )
+        )
+      )
+    )
+
+    `Add the response to the list and continue to the next turn`
+    ("-->" "responses" ("+" ("<--" "responses") [("<--" "response")]))
+    ("-->" "turn" ("+" ("<--" "turn") #1#))
+  )
+)
+
+`Return the responses of the player`
+("<--" "responses")
