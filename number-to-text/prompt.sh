@@ -17,7 +17,7 @@ then
 else
     if [ "$answer" = '#3#' ]
     then
-        printf 'I don'\''t think that is a valid integer.\n'
+        printf "I don't think that is a valid counting number.\n"
     elif [ "$answer" = '#6#' ]
     then
         printf 'I couldn'\''t access a required file.\n'

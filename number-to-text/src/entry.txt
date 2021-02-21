@@ -1,9 +1,13 @@
 `
-  This script will take an integer and return it in numeral form.
+  Program which takes a counting number (0, 1, 2, ...) and returns that number
+  in English cardinal word form.
 `
 
 `Store program arguments`
 ("-->" "number" ("<--" "@"))
+
+`Error if the number is negative`
+("?" ("<" ("<--" "number") #0#) ("<>" #3#) ?)
 
 `Cache sub-scripts to avoid repeated file reads`
 ("-->" "net1" ("^" "net1.txt")) ("<3" "net1")

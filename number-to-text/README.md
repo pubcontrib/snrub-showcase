@@ -1,6 +1,18 @@
 # number-to-text
-> Program which takes an integer number and returns its representation in
-English text.
+> Program which takes a counting number (0, 1, 2, ...) and returns that number
+in English cardinal word form.
+
+## Rules
+Numbers can take many forms in a language. There are times that you might wish
+to spell out a number just as you'd pronounce it. For example when writing a
+check to pay for something the document expects this word form to be considered
+complete.
+
+For example if the number was `155` the word form would be
+`one hundred fifty-five`.
+
+This program will do the translation for you using the rules of the English
+language.
 
 ## Running
 A Shell script is included to provide a conversational interface for the
@@ -25,4 +37,4 @@ Testing requires `sh` but can be an automated way to verify your version of
 sh test/run.sh
 ```
 
-Last tested with Snrub version `v0.52.1`.
+Last tested with Snrub version `v0.52.3`.
