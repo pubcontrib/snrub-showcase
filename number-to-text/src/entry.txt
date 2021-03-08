@@ -15,6 +15,7 @@
 ("-->" "net3" ("^" "net3.txt")) ("<3" "net3")
 ("-->" "net4" ("^" "net4.txt")) ("<3" "net4")
 ("-->" "net5" ("^" "net5.txt")) ("<3" "net5")
+("-->" "net6" ("^" "net6.txt")) ("<3" "net6")
 ("-->" "pick" ("^" "pick.txt")) ("<3" "pick")
 ("-->" "trawl" ("^" "trawl.txt")) ("<3" "trawl")
 
@@ -25,6 +26,7 @@
 ("~" ("<--" "trawl") [ "net3" ("<--" "number") "text" ]) `[20-99]`
 ("~" ("<--" "trawl") [ "net4" ("<--" "number") "text" ]) `[100-999]`
 ("~" ("<--" "trawl") [ "net5" ("<--" "number") "text" ]) `[1000-999999]`
+("~" ("<--" "trawl") [ "net6" ("<--" "number") "text" ]) `[1000000-999999999]`
 
 `Return any matched text`
 ("<--" "text")

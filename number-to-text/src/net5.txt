@@ -10,8 +10,8 @@
   ("..."
     ("-->" "length" ("| |" ("\"" ("<--" "source"))))
 
-    `Find the leading word`
-    ("-->" "leading-digit"
+    `Find the thousands word`
+    ("-->" "thousands-digit"
       ("#"
         ("[# #]"
           ("\"" ("<--" "source"))
@@ -21,16 +21,16 @@
       )
     )
 
-    ("-->" "leading-word" "")
-    ("<3" "leading-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "trawl") [ "net2" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "trawl") [ "net3" ("<--" "leading-digit") "leading-word" ])
-    ("~" ("<--" "trawl") [ "net4" ("<--" "leading-digit") "leading-word" ])
-    ("</3" "leading-word")
+    ("-->" "thousands-word" "")
+    ("<3" "thousands-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "thousands-digit") "thousands-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "thousands-digit") "thousands-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "thousands-digit") "thousands-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "thousands-digit") "thousands-word" ])
+    ("</3" "thousands-word")
 
-    `Find the trailing word`
-    ("-->" "trailing-digit"
+    `Find the remaining word`
+    ("-->" "thousands-remaining-digit"
       ("#"
         ("[# #]"
           ("\"" ("<--" "source"))
@@ -40,19 +40,19 @@
       )
     )
 
-    ("-->" "trailing-word" "")
-    ("<3" "trailing-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "trawl") [ "net2" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "trawl") [ "net3" ("<--" "trailing-digit") "trailing-word" ])
-    ("~" ("<--" "trawl") [ "net4" ("<--" "trailing-digit") "trailing-word" ])
-    ("</3" "trailing-word")
+    ("-->" "thousands-remaining-word" "")
+    ("<3" "thousands-remaining-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("</3" "thousands-remaining-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "trailing-digit") #0#)
-      ("-->" "destination" ("+" ("<--" "leading-word") " thousand"))
-      ("-->" "destination" ("+" ("<--" "leading-word") ("+" " thousand, " ("<--" "trailing-word"))))
+      ("=" ("<--" "thousands-remaining-digit") #0#)
+      ("-->" "destination" ("+" ("<--" "thousands-word") " thousand"))
+      ("-->" "destination" ("+" ("<--" "thousands-word") ("+" " thousand, " ("<--" "thousands-remaining-word"))))
     )
   )
   ?

@@ -1,0 +1,62 @@
+`
+  This script will match numbers that are between 1000000 and 999999999.
+`
+
+("-->" "source" ("<--" "@"))
+("-->" "destination" "")
+
+("?"
+  (">" ("<--" "source") #999999#)
+  ("..."
+    ("-->" "length" ("| |" ("\"" ("<--" "source"))))
+
+    `Find the millions word`
+    ("-->" "millions-digit"
+      ("#"
+        ("[# #]"
+          ("\"" ("<--" "source"))
+          #1#
+          ("-" ("<--" "length") #6#)
+        )
+      )
+    )
+
+    ("-->" "millions-word" "")
+    ("<3" "millions-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "millions-digit") "millions-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "millions-digit") "millions-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "millions-digit") "millions-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "millions-digit") "millions-word" ])
+    ("</3" "millions-word")
+
+    `Find the remaining word`
+    ("-->" "millions-remaining-digit"
+      ("#"
+        ("[# #]"
+          ("\"" ("<--" "source"))
+          ("-" ("<--" "length") #5#)
+          ("<--" "length")
+        )
+      )
+    )
+
+    ("-->" "millions-remaining-word" "")
+    ("<3" "millions-remaining-word")
+    ("~" ("<--" "trawl") [ "net1" ("<--" "millions-remaining-digit") "millions-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net2" ("<--" "millions-remaining-digit") "millions-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net3" ("<--" "millions-remaining-digit") "millions-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net4" ("<--" "millions-remaining-digit") "millions-remaining-word" ])
+    ("~" ("<--" "trawl") [ "net5" ("<--" "millions-remaining-digit") "millions-remaining-word" ])
+    ("</3" "millions-remaining-word")
+
+    `Combine words`
+    ("?"
+      ("=" ("<--" "millions-remaining-digit") #0#)
+      ("-->" "destination" ("+" ("<--" "millions-word") " million"))
+      ("-->" "destination" ("+" ("<--" "millions-word") ("+" " million, " ("<--" "millions-remaining-word"))))
+    )
+  )
+  ?
+)
+
+("<--" "destination")
