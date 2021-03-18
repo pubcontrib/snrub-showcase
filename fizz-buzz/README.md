@@ -13,11 +13,12 @@ applying these rules with each number:
 - If the number is neither divisible by 3 or 5, the player says the number.
 
 For example if the game was played for 5 turns you should hear the player say:
-1. "One"
-2. "Two"
-3. "Fizz"
-4. "Four"
-5. "Buzz"
+
+1.  "One"
+2.  "Two"
+3.  "Fizz"
+4.  "Four"
+5.  "Buzz"
 
 The game can be played solo where a judge listens for each response failing the
 player if they take too long or give a wrong answer. For more of a challenge the
@@ -49,4 +50,4 @@ Testing requires `sh` but can be an automated way to verify your version of
 sh test/run.sh
 ```
 
-Last tested with Snrub version `v0.53.0`.
+Last tested with Snrub version `v0.54.1`.

@@ -12,7 +12,8 @@ For example if the number was `155` the word form would be
 `one hundred fifty-five`.
 
 This program will do the translation for you using the rules of the English
-language.
+language. The Snrub language can only store numbers up to but not including one
+billion, so you're likely to see an error if you exceed that range.
 
 ## Running
 A Shell script is included to provide a conversational interface for the
@@ -37,4 +38,4 @@ Testing requires `sh` but can be an automated way to verify your version of
 sh test/run.sh
 ```
 
-Last tested with Snrub version `v0.53.0`.
+Last tested with Snrub version `v0.54.1`.
