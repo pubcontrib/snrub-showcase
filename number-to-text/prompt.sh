@@ -18,11 +18,8 @@ else
     if [ "$answer" = '#3#' ]
     then
         printf "I don't think that is a valid counting number.\n"
-    elif [ "$answer" = '#6#' ]
-    then
-        printf 'I couldn'\''t access a required file.\n'
     else
-        printf 'I don'\''t know what broke.\n'
+        printf "I don't know what broke.\n"
     fi
 
     exit 1

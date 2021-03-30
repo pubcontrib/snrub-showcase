@@ -50,4 +50,4 @@ Testing requires `sh` but can be an automated way to verify your version of
 sh test/run.sh
 ```
 
-Last tested with Snrub version `v0.54.1`.
+Last tested with Snrub version `v0.55.0`.
