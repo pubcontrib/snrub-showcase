@@ -38,4 +38,4 @@ Testing requires `sh` but can be an automated way to verify your version of
 sh test/run.sh
 ```
 
-Last tested with Snrub version `v0.55.0`.
+Last tested with Snrub version `v0.59.1`.

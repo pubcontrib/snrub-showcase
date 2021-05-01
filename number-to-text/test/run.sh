@@ -137,13 +137,10 @@ pass 123456789 '"one hundred twenty-three million, four hundred fifty-six thousa
 pass 987654321 '"nine hundred eighty-seven million, six hundred fifty-four thousand, three hundred twenty-one"'
 pass 999999999 '"nine hundred ninety-nine million, nine hundred ninety-nine thousand, nine hundred ninety-nine"'
 
+fail 'text' '#3#'
 fail 'one' '#3#'
-fail 'two' '#3#'
-fail 'three' '#3#'
-fail -1 '#3#'
-fail -2 '#3#'
-fail -3 '#3#'
-fail -4 '#3#'
-fail -5 '#3#'
+fail '-1' '#3#'
+fail '-1000000000' '#3#'
+fail 1000000000 '#3#'
 
 printf '%d tests run.\n' $count
