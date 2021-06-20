@@ -2,11 +2,11 @@
   This script used to test and set global variables when local objects matches.
 `
 
-("-->" "number" ("[#]" ("<--" "@") #1#))
-("-->" "word" ("[#]" ("<--" "@") #2#))
+("x<-" "number" ("$->" ("x->" "@") #1#))
+("x<-" "word" ("$->" ("x->" "@") #2#))
 
 ("?"
-  ("=" ("<--" "source") ("<--" "number"))
-  ("-->" "destination" ("<--" "word"))
+  ("=" ("x->" "source") ("x->" "number"))
+  ("x<-" "destination" ("x->" "word"))
   ?
 )

@@ -2,10 +2,10 @@
   This script will run a sub-script and set any catches to a global variable.
 `
 
-("-->" "net" ("[#]" ("<--" "@") #1#))
-("-->" "bait" ("[#]" ("<--" "@") #2#))
-("-->" "icebox" ("[#]" ("<--" "@") #3#))
+("x<-" "net" ("$->" ("x->" "@") #1#))
+("x<-" "bait" ("$->" ("x->" "@") #2#))
+("x<-" "icebox" ("$->" ("x->" "@") #3#))
 
-("-->" "catch" ("~" ("<--" ("<--" "net")) ("<--" "bait")))
+("x<-" "catch" ("~" ("x->" ("x->" "net")) ("x->" "bait")))
 
-("?" ("=" ("<--" "catch") "") ? ("-->" ("<--" "icebox") ("<--" "catch")))
+("?" ("=" ("x->" "catch") "") ? ("x<-" ("x->" "icebox") ("x->" "catch")))

@@ -2,27 +2,27 @@
   This script will match numbers that are between 0 and 9.
 `
 
-("-->" "source" ("<--" "@"))
-("-->" "destination" "")
+("x<-" "source" ("x->" "@"))
+("x<-" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "source") #-1#) ("<" ("<--" "source") #10#))
+  ("&" (">" ("x->" "source") #-1#) ("<" ("x->" "source") #10#))
   ("..."
     `Find the ones word`
     ("<3" "source") ("<3" "destination")
-    ("~" ("<--" "pick") [ #0# "zero" ])
-    ("~" ("<--" "pick") [ #1# "one" ])
-    ("~" ("<--" "pick") [ #2# "two" ])
-    ("~" ("<--" "pick") [ #3# "three" ])
-    ("~" ("<--" "pick") [ #4# "four" ])
-    ("~" ("<--" "pick") [ #5# "five" ])
-    ("~" ("<--" "pick") [ #6# "six" ])
-    ("~" ("<--" "pick") [ #7# "seven" ])
-    ("~" ("<--" "pick") [ #8# "eight" ])
-    ("~" ("<--" "pick") [ #9# "nine" ])
+    ("~" ("x->" "pick") [ #0# "zero" ])
+    ("~" ("x->" "pick") [ #1# "one" ])
+    ("~" ("x->" "pick") [ #2# "two" ])
+    ("~" ("x->" "pick") [ #3# "three" ])
+    ("~" ("x->" "pick") [ #4# "four" ])
+    ("~" ("x->" "pick") [ #5# "five" ])
+    ("~" ("x->" "pick") [ #6# "six" ])
+    ("~" ("x->" "pick") [ #7# "seven" ])
+    ("~" ("x->" "pick") [ #8# "eight" ])
+    ("~" ("x->" "pick") [ #9# "nine" ])
     ("</3" "source") ("</3" "destination")
   )
   ?
 )
 
-("<--" "destination")
+("x->" "destination")

@@ -2,44 +2,44 @@
   This script will match numbers that are between 20 and 99.
 `
 
-("-->" "source" ("<--" "@"))
-("-->" "destination" "")
+("x<-" "source" ("x->" "@"))
+("x<-" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "source") #19#) ("<" ("<--" "source") #100#))
+  ("&" (">" ("x->" "source") #19#) ("<" ("x->" "source") #100#))
   ("..."
     `Find the tens word`
-    ("-->" "tens-digit" ("#" ("[#]" ("\"" ("<--" "source")) #1#)))
-    ("-->" "temporary" ("<--" "source"))
-    ("-->" "source" ("<--" "tens-digit"))
+    ("x<-" "tens-digit" ("#" ("$->" ("\"" ("x->" "source")) #1#)))
+    ("x<-" "temporary" ("x->" "source"))
+    ("x<-" "source" ("x->" "tens-digit"))
     ("<3" "source") ("<3" "destination")
-    ("~" ("<--" "pick") [ #2# "twenty" ])
-    ("~" ("<--" "pick") [ #3# "thirty" ])
-    ("~" ("<--" "pick") [ #4# "forty" ])
-    ("~" ("<--" "pick") [ #5# "fifty" ])
-    ("~" ("<--" "pick") [ #6# "sixty" ])
-    ("~" ("<--" "pick") [ #7# "seventy" ])
-    ("~" ("<--" "pick") [ #8# "eighty" ])
-    ("~" ("<--" "pick") [ #9# "ninety" ])
+    ("~" ("x->" "pick") [ #2# "twenty" ])
+    ("~" ("x->" "pick") [ #3# "thirty" ])
+    ("~" ("x->" "pick") [ #4# "forty" ])
+    ("~" ("x->" "pick") [ #5# "fifty" ])
+    ("~" ("x->" "pick") [ #6# "sixty" ])
+    ("~" ("x->" "pick") [ #7# "seventy" ])
+    ("~" ("x->" "pick") [ #8# "eighty" ])
+    ("~" ("x->" "pick") [ #9# "ninety" ])
     ("</3" "source") ("</3" "destination")
-    ("-->" "tens-word" ("<--" "destination"))
-    ("-->" "source" ("<--" "temporary"))
+    ("x<-" "tens-word" ("x->" "destination"))
+    ("x<-" "source" ("x->" "temporary"))
 
     `Find the ones word`
-    ("-->" "ones-digit" ("#" ("[#]" ("\"" ("<--" "source")) #2#)))
-    ("-->" "ones-word" "")
+    ("x<-" "ones-digit" ("#" ("$->" ("\"" ("x->" "source")) #2#)))
+    ("x<-" "ones-word" "")
     ("<3" "ones-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "ones-digit") "ones-word" ])
+    ("~" ("x->" "trawl") [ "net1" ("x->" "ones-digit") "ones-word" ])
     ("</3" "ones-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "ones-digit") #0#)
-      ("-->" "destination" ("<--" "tens-word"))
-      ("-->" "destination" ("+" ("<--" "tens-word") ("+" "-" ("<--" "ones-word"))))
+      ("=" ("x->" "ones-digit") #0#)
+      ("x<-" "destination" ("x->" "tens-word"))
+      ("x<-" "destination" ("+" ("x->" "tens-word") ("+" "-" ("x->" "ones-word"))))
     )
   )
   ?
 )
 
-("<--" "destination")
+("x->" "destination")

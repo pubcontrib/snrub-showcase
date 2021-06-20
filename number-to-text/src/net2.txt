@@ -2,27 +2,27 @@
   This script will match numbers that are between 10 and 19.
 `
 
-("-->" "source" ("<--" "@"))
-("-->" "destination" "")
+("x<-" "source" ("x->" "@"))
+("x<-" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "source") #9#) ("<" ("<--" "source") #20#))
+  ("&" (">" ("x->" "source") #9#) ("<" ("x->" "source") #20#))
   ("..."
     `Find the tens word`
     ("<3" "source") ("<3" "destination")
-    ("~" ("<--" "pick") [ #10# "ten" ])
-    ("~" ("<--" "pick") [ #11# "eleven" ])
-    ("~" ("<--" "pick") [ #12# "twelve" ])
-    ("~" ("<--" "pick") [ #13# "thirteen" ])
-    ("~" ("<--" "pick") [ #14# "fourteen" ])
-    ("~" ("<--" "pick") [ #15# "fifteen" ])
-    ("~" ("<--" "pick") [ #16# "sixteen" ])
-    ("~" ("<--" "pick") [ #17# "seventeen" ])
-    ("~" ("<--" "pick") [ #18# "eighteen" ])
-    ("~" ("<--" "pick") [ #19# "nineteen" ])
+    ("~" ("x->" "pick") [ #10# "ten" ])
+    ("~" ("x->" "pick") [ #11# "eleven" ])
+    ("~" ("x->" "pick") [ #12# "twelve" ])
+    ("~" ("x->" "pick") [ #13# "thirteen" ])
+    ("~" ("x->" "pick") [ #14# "fourteen" ])
+    ("~" ("x->" "pick") [ #15# "fifteen" ])
+    ("~" ("x->" "pick") [ #16# "sixteen" ])
+    ("~" ("x->" "pick") [ #17# "seventeen" ])
+    ("~" ("x->" "pick") [ #18# "eighteen" ])
+    ("~" ("x->" "pick") [ #19# "nineteen" ])
     ("</3" "source") ("</3" "destination")
   )
   ?
 )
 
-("<--" "destination")
+("x->" "destination")

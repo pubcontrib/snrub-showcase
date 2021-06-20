@@ -2,60 +2,60 @@
   This script will match numbers that are between 1000 and 999999.
 `
 
-("-->" "source" ("<--" "@"))
-("-->" "destination" "")
+("x<-" "source" ("x->" "@"))
+("x<-" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "source") #999#) ("<" ("<--" "source") #1000000#))
+  ("&" (">" ("x->" "source") #999#) ("<" ("x->" "source") #1000000#))
   ("..."
-    ("-->" "length" ("| |" ("\"" ("<--" "source"))))
+    ("x<-" "length" ("| |" ("\"" ("x->" "source"))))
 
     `Find the thousands word`
-    ("-->" "thousands-digit"
+    ("x<-" "thousands-digit"
       ("#"
         ("[# #]"
-          ("\"" ("<--" "source"))
+          ("\"" ("x->" "source"))
           #1#
-          ("-" ("<--" "length") #3#)
+          ("-" ("x->" "length") #3#)
         )
       )
     )
 
-    ("-->" "thousands-word" "")
+    ("x<-" "thousands-word" "")
     ("<3" "thousands-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "thousands-digit") "thousands-word" ])
-    ("~" ("<--" "trawl") [ "net2" ("<--" "thousands-digit") "thousands-word" ])
-    ("~" ("<--" "trawl") [ "net3" ("<--" "thousands-digit") "thousands-word" ])
-    ("~" ("<--" "trawl") [ "net4" ("<--" "thousands-digit") "thousands-word" ])
+    ("~" ("x->" "trawl") [ "net1" ("x->" "thousands-digit") "thousands-word" ])
+    ("~" ("x->" "trawl") [ "net2" ("x->" "thousands-digit") "thousands-word" ])
+    ("~" ("x->" "trawl") [ "net3" ("x->" "thousands-digit") "thousands-word" ])
+    ("~" ("x->" "trawl") [ "net4" ("x->" "thousands-digit") "thousands-word" ])
     ("</3" "thousands-word")
 
     `Find the remaining word`
-    ("-->" "thousands-remaining-digit"
+    ("x<-" "thousands-remaining-digit"
       ("#"
         ("[# #]"
-          ("\"" ("<--" "source"))
-          ("-" ("<--" "length") #2#)
-          ("<--" "length")
+          ("\"" ("x->" "source"))
+          ("-" ("x->" "length") #2#)
+          ("x->" "length")
         )
       )
     )
 
-    ("-->" "thousands-remaining-word" "")
+    ("x<-" "thousands-remaining-word" "")
     ("<3" "thousands-remaining-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
-    ("~" ("<--" "trawl") [ "net2" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
-    ("~" ("<--" "trawl") [ "net3" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
-    ("~" ("<--" "trawl") [ "net4" ("<--" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("x->" "trawl") [ "net1" ("x->" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("x->" "trawl") [ "net2" ("x->" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("x->" "trawl") [ "net3" ("x->" "thousands-remaining-digit") "thousands-remaining-word" ])
+    ("~" ("x->" "trawl") [ "net4" ("x->" "thousands-remaining-digit") "thousands-remaining-word" ])
     ("</3" "thousands-remaining-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "thousands-remaining-digit") #0#)
-      ("-->" "destination" ("+" ("<--" "thousands-word") " thousand"))
-      ("-->" "destination" ("+" ("<--" "thousands-word") ("+" " thousand, " ("<--" "thousands-remaining-word"))))
+      ("=" ("x->" "thousands-remaining-digit") #0#)
+      ("x<-" "destination" ("+" ("x->" "thousands-word") " thousand"))
+      ("x<-" "destination" ("+" ("x->" "thousands-word") ("+" " thousand, " ("x->" "thousands-remaining-word"))))
     )
   )
   ?
 )
 
-("<--" "destination")
+("x->" "destination")

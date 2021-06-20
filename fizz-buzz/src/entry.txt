@@ -4,45 +4,45 @@
 `
 
 `Store program arguments`
-("-->" "goal" ("<--" "@"))
+("x<-" "goal" ("x->" "@"))
 
 `Error if the goal is negative`
-("?" ("<" ("<--" "goal") #0#) ("<>" #3#) ?)
+("?" ("<" ("x->" "goal") #0#) ("<>" #3#) ?)
 
 `Run all turns of the game storing each response in-order`
-("-->" "turn" #1#)
-("-->" "responses" [])
+("x<-" "turn" #1#)
+("x<-" "responses" [])
 
 ("o"
-  ("<" ("<--" "turn") ("+" ("<--" "goal") #1#))
+  ("<" ("x->" "turn") ("+" ("x->" "goal") #1#))
   ("..."
     `Store divisiblity tests`
-    ("-->" "/3" ("!" ("%" ("<--" "turn") #3#)))
-    ("-->" "/5" ("!" ("%" ("<--" "turn") #5#)))
+    ("x<-" "/3" ("!" ("%" ("x->" "turn") #3#)))
+    ("x<-" "/5" ("!" ("%" ("x->" "turn") #5#)))
 
     `Ask the response for the current turn`
-    ("-->"
+    ("x<-"
       "response"
       ("?"
-        ("&" ("<--" "/3") ("<--" "/5"))
+        ("&" ("x->" "/3") ("x->" "/5"))
         "Fizz Buzz"
         ("?"
-          ("<--" "/3")
+          ("x->" "/3")
           "Fizz"
           ("?"
-            ("<--" "/5")
+            ("x->" "/5")
             "Buzz"
-            ("\"" ("<--" "turn"))
+            ("\"" ("x->" "turn"))
           )
         )
       )
     )
 
     `Add the response to the list and continue to the next turn`
-    ("-->" "responses" ("+" ("<--" "responses") [("<--" "response")]))
-    ("-->" "turn" ("+" ("<--" "turn") #1#))
+    ("x<-" "responses" ("+" ("x->" "responses") [("x->" "response")]))
+    ("x<-" "turn" ("+" ("x->" "turn") #1#))
   )
 )
 
 `Return the responses of the player`
-("<--" "responses")
+("x->" "responses")

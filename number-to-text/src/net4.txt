@@ -2,36 +2,36 @@
   This script will match numbers that are between 100 and 999.
 `
 
-("-->" "source" ("<--" "@"))
-("-->" "destination" "")
+("x<-" "source" ("x->" "@"))
+("x<-" "destination" "")
 
 ("?"
-  ("&" (">" ("<--" "source") #99#) ("<" ("<--" "source") #1000#))
+  ("&" (">" ("x->" "source") #99#) ("<" ("x->" "source") #1000#))
   ("..."
     `Find the hundreds word`
-    ("-->" "hundreds-digit" ("#" ("[#]" ("\"" ("<--" "source")) #1#)))
-    ("-->" "hundreds-word" "")
+    ("x<-" "hundreds-digit" ("#" ("$->" ("\"" ("x->" "source")) #1#)))
+    ("x<-" "hundreds-word" "")
     ("<3" "hundreds-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "hundreds-digit") "hundreds-word" ])
+    ("~" ("x->" "trawl") [ "net1" ("x->" "hundreds-digit") "hundreds-word" ])
     ("</3" "hundreds-word")
 
     `Find the tens word`
-    ("-->" "tens-digit" ("#" ("[# #]" ("\"" ("<--" "source")) #2# #3#)))
-    ("-->" "tens-word" "")
+    ("x<-" "tens-digit" ("#" ("[# #]" ("\"" ("x->" "source")) #2# #3#)))
+    ("x<-" "tens-word" "")
     ("<3" "tens-word")
-    ("~" ("<--" "trawl") [ "net1" ("<--" "tens-digit") "tens-word" ])
-    ("~" ("<--" "trawl") [ "net2" ("<--" "tens-digit") "tens-word" ])
-    ("~" ("<--" "trawl") [ "net3" ("<--" "tens-digit") "tens-word" ])
+    ("~" ("x->" "trawl") [ "net1" ("x->" "tens-digit") "tens-word" ])
+    ("~" ("x->" "trawl") [ "net2" ("x->" "tens-digit") "tens-word" ])
+    ("~" ("x->" "trawl") [ "net3" ("x->" "tens-digit") "tens-word" ])
     ("</3" "tens-word")
 
     `Combine words`
     ("?"
-      ("=" ("<--" "tens-digit") #0#)
-      ("-->" "destination" ("+" ("<--" "hundreds-word") " hundred"))
-      ("-->" "destination" ("+" ("<--" "hundreds-word") ("+" " hundred " ("<--" "tens-word"))))
+      ("=" ("x->" "tens-digit") #0#)
+      ("x<-" "destination" ("+" ("x->" "hundreds-word") " hundred"))
+      ("x<-" "destination" ("+" ("x->" "hundreds-word") ("+" " hundred " ("x->" "tens-word"))))
     )
   )
   ?
 )
 
-("<--" "destination")
+("x->" "destination")
