@@ -9,18 +9,20 @@
   ("&" (">" ("x->" "source") #-1#) ("<" ("x->" "source") #10#))
   ("..."
     `Find the ones word`
-    ("<3" "source") ("<3" "destination")
-    ("~" ("x->" "pick") [ #0# "zero" ])
-    ("~" ("x->" "pick") [ #1# "one" ])
-    ("~" ("x->" "pick") [ #2# "two" ])
-    ("~" ("x->" "pick") [ #3# "three" ])
-    ("~" ("x->" "pick") [ #4# "four" ])
-    ("~" ("x->" "pick") [ #5# "five" ])
-    ("~" ("x->" "pick") [ #6# "six" ])
-    ("~" ("x->" "pick") [ #7# "seven" ])
-    ("~" ("x->" "pick") [ #8# "eight" ])
-    ("~" ("x->" "pick") [ #9# "nine" ])
-    ("</3" "source") ("</3" "destination")
+    ("x<-" "destination"
+      ("$->" {
+        "0" "zero"
+        "1" "one"
+        "2" "two"
+        "3" "three"
+        "4" "four"
+        "5" "five"
+        "6" "six"
+        "7" "seven"
+        "8" "eight"
+        "9" "nine"
+      } ("\"" ("x->" "source")))
+    )
   )
   ?
 )

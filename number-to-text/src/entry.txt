@@ -16,7 +16,6 @@
 ("x<-" "net4" ("[o]->" "net4.txt")) ("<3" "net4")
 ("x<-" "net5" ("[o]->" "net5.txt")) ("<3" "net5")
 ("x<-" "net6" ("[o]->" "net6.txt")) ("<3" "net6")
-("x<-" "pick" ("[o]->" "pick.txt")) ("<3" "pick")
 ("x<-" "trawl" ("[o]->" "trawl.txt")) ("<3" "trawl")
 
 `Run each sub-script as a net to match numbers within their ranges`
