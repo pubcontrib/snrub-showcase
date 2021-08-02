@@ -1,0 +1,27 @@
+`Store program arguments`
+("x<-" "bill" ("$->" ("x->" "@") #1#))
+("x<-" "tip" ("$->" ("x->" "@") #2#))
+("x<-" "scale" ("$->" ("x->" "@") #3#))
+
+`Error if a bill is missing`
+("?" ("=" ("x->" "bill") ?) ("<>" #3#) ?)
+
+`Set default values if they are missing`
+("?" ("=" ("x->" "tip") ?) ("x<-" "tip" #20#) ?)
+("?" ("=" ("x->" "scale") ?) ("x<-" "scale" #2#) ?)
+
+`Use the scale to figure out how the computed amount needs to be adjusted`
+("x<-" "adjustment" #10#)
+("x<-" "index" #1#)
+("o"
+  ("<" ("x->" "index") ("x->" "scale"))
+  ("..."
+    ("x<-" "adjustment" ("*" ("x->" "adjustment") #10#))
+    ("x<-" "index" ("+" ("x->" "index") #1#))
+  )
+)
+
+`Compute and return the adjusted amount`
+("x<-" "amount" ("*" ("x->" "bill") ("x->" "tip")))
+("x<-" "amount" ("/" ("x->" "amount") ("x->" "adjustment")))
+("x->" "amount")
