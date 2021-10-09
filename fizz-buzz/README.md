@@ -39,15 +39,14 @@ sh prompt.sh
 If you'd like to run the program directly, you can invoke the `snrub` program
 directly with the entry script and number as arguments.
 ```sh
-cd src
-snrub -f entry.txt "#100#"
+snrub -f app.txt "#100#"
 ```
 
 ## Testing
-Testing requires `sh` but can be an automated way to verify your version of
-`snrub` executes this program's scripts correctly.
+Testing can be an automated way to verify your version of `snrub` executes this
+program's scripts correctly.
 ```sh
-sh test/run.sh
+snrub -f test.txt
 ```
 
-Last tested with Snrub version `v0.70.0`.
+Last tested with Snrub version `v0.72.3`.

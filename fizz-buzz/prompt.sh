@@ -1,14 +1,11 @@
 #!/bin/sh
 snrub=${1:-snrub}
-src=${2:-src}
-
-cd "$src"
 
 printf 'Welcome to fizz-buzz!\n'
 printf 'How many turns of the game would you like to see played out?\n'
 read number
 
-answer=`$snrub -f entry.txt "#$number#"`
+answer=`$snrub -f app.txt "#$number#"`
 status=$?
 
 if [ $status -eq 0 ]

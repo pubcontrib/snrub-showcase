@@ -10,13 +10,13 @@
 ("?" ("<" ("x->" "number") #0#) ("<>" #3#) ?)
 
 `Cache sub-scripts to avoid repeated file reads`
-("x<-" "net1" ("[o]->" "net1.txt")) ("<3" "net1")
-("x<-" "net2" ("[o]->" "net2.txt")) ("<3" "net2")
-("x<-" "net3" ("[o]->" "net3.txt")) ("<3" "net3")
-("x<-" "net4" ("[o]->" "net4.txt")) ("<3" "net4")
-("x<-" "net5" ("[o]->" "net5.txt")) ("<3" "net5")
-("x<-" "net6" ("[o]->" "net6.txt")) ("<3" "net6")
-("x<-" "trawl" ("[o]->" "trawl.txt")) ("<3" "trawl")
+("x<-" "net1" ("[o]->" "app/net1.txt")) ("<3" "net1")
+("x<-" "net2" ("[o]->" "app/net2.txt")) ("<3" "net2")
+("x<-" "net3" ("[o]->" "app/net3.txt")) ("<3" "net3")
+("x<-" "net4" ("[o]->" "app/net4.txt")) ("<3" "net4")
+("x<-" "net5" ("[o]->" "app/net5.txt")) ("<3" "net5")
+("x<-" "net6" ("[o]->" "app/net6.txt")) ("<3" "net6")
+("x<-" "trawl" ("[o]->" "app/trawl.txt")) ("<3" "trawl")
 
 `Run each sub-script as a net to match numbers within their ranges`
 ("x<-" "text" "") ("<3" "text")

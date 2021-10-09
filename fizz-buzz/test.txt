@@ -1,0 +1,32 @@
+("x<-" "assert" ("[o]->" "test/assert.txt")) ("<3" "assert")
+("x<-" "app" ("[o]->" "app.txt")) ("<3" "app")
+
+`Success cases`
+("~" ("x->" "assert") [[] ("~" ("x->" "app") #0#)])
+("~" ("x->" "assert") [["1"] ("~" ("x->" "app") #1#)])
+("~" ("x->" "assert") [["1" "2"] ("~" ("x->" "app") #2#)])
+("~" ("x->" "assert") [["1" "2" "Fizz"] ("~" ("x->" "app") #3#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4"] ("~" ("x->" "app") #4#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz"] ("~" ("x->" "app") #5#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz"] ("~" ("x->" "app") #6#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7"] ("~" ("x->" "app") #7#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8"] ("~" ("x->" "app") #8#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz"] ("~" ("x->" "app") #9#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz"] ("~" ("x->" "app") #10#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz" "11"] ("~" ("x->" "app") #11#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz" "11" "Fizz"] ("~" ("x->" "app") #12#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz" "11" "Fizz" "13"] ("~" ("x->" "app") #13#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz" "11" "Fizz" "13" "14"] ("~" ("x->" "app") #14#)])
+("~" ("x->" "assert") [["1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz" "11" "Fizz" "13" "14" "Fizz Buzz"] ("~" ("x->" "app") #15#)])
+
+`Failure cases`
+("~" ("x->" "assert") [#4# ("><" ("~" ("x->" "app") "one"))])
+("~" ("x->" "assert") [#4# ("><" ("~" ("x->" "app") "two"))])
+("~" ("x->" "assert") [#4# ("><" ("~" ("x->" "app") "three"))])
+("~" ("x->" "assert") [#3# ("><" ("~" ("x->" "app") #-1#))])
+("~" ("x->" "assert") [#3# ("><" ("~" ("x->" "app") #-2#))])
+("~" ("x->" "assert") [#3# ("><" ("~" ("x->" "app") #-3#))])
+("~" ("x->" "assert") [#3# ("><" ("~" ("x->" "app") #-4#))])
+("~" ("x->" "assert") [#3# ("><" ("~" ("x->" "app") #-5#))])
+
+"All tests passed!"

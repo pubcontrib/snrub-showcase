@@ -1,14 +1,11 @@
 #!/bin/sh
 snrub=${1:-snrub}
-src=${2:-src}
-
-cd "$src"
 
 printf 'Welcome to number-to-text!\n'
 printf 'What number would you like converted to text?\n'
 read number
 
-answer=`$snrub -f entry.txt "#$number#"`
+answer=`$snrub -f app.txt "#$number#"`
 status=$?
 
 if [ $status -eq 0 ]
