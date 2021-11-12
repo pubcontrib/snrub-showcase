@@ -1,3 +1,9 @@
+`
+  Program which takes a bill (total amount in any currency), tip (percent), and
+  scale (number of digits for the decimal half of numbers) then returns the
+  amount needed for the tip.
+`
+
 `Store program arguments`
 ("x<-" "bill" ("$->" ("x->" "@") #1#))
 ("x<-" "tip" ("$->" ("x->" "@") #2#))

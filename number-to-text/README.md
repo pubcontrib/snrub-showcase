@@ -1,6 +1,6 @@
 # number-to-text
 > Program which takes a counting number (0, 1, 2, ...) and returns that number
-in English cardinal word form.
+> in English cardinal word form.
 
 ## Rules
 Numbers can take many forms in a language. There are times that you might wish
@@ -37,4 +37,4 @@ program's scripts correctly.
 snrub -f test.txt
 ```
 
-Last tested with Snrub version `v0.72.3`.
+Last tested with Snrub version `v0.73.6`.

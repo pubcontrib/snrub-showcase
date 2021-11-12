@@ -1,3 +1,8 @@
+`
+  Program for launching application tests.
+`
+
+`Cache sub-scripts to avoid repeated file reads`
 ("x<-" "assert" ("[o]->" "test/assert.txt")) ("<3" "assert")
 ("x<-" "app" ("[o]->" "app.txt")) ("<3" "app")
 

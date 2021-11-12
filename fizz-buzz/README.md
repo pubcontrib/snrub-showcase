@@ -1,6 +1,6 @@
 # fizz-buzz
 > Program which takes a counting number (0, 1, 2, ...) and returns that many
-turns in the game of FizzBuzz.
+> turns in the game of FizzBuzz.
 
 ## Rules
 The game of FizzBuzz is a simple counting game to help young mathematicians
@@ -49,4 +49,4 @@ program's scripts correctly.
 snrub -f test.txt
 ```
 
-Last tested with Snrub version `v0.72.3`.
+Last tested with Snrub version `v0.73.6`.
