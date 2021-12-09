@@ -5,6 +5,8 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
+("^" "TRAWL" ("x->" "trawl"))
+
 ("?"
   (">" ("x->" "source") #999999#)
   ("..."
@@ -23,10 +25,10 @@
 
     ("x<-" "millions-word" "")
     ("<3" "millions-word")
-    ("~" ("x->" "trawl") [ "net1" ("x->" "millions-digit") "millions-word" ])
-    ("~" ("x->" "trawl") [ "net2" ("x->" "millions-digit") "millions-word" ])
-    ("~" ("x->" "trawl") [ "net3" ("x->" "millions-digit") "millions-word" ])
-    ("~" ("x->" "trawl") [ "net4" ("x->" "millions-digit") "millions-word" ])
+    ("TRAWL" ["net1" ("x->" "millions-digit") "millions-word"])
+    ("TRAWL" ["net2" ("x->" "millions-digit") "millions-word"])
+    ("TRAWL" ["net3" ("x->" "millions-digit") "millions-word"])
+    ("TRAWL" ["net4" ("x->" "millions-digit") "millions-word"])
     ("</3" "millions-word")
 
     `Find the remaining word`
@@ -42,11 +44,11 @@
 
     ("x<-" "millions-remaining-word" "")
     ("<3" "millions-remaining-word")
-    ("~" ("x->" "trawl") [ "net1" ("x->" "millions-remaining-digit") "millions-remaining-word" ])
-    ("~" ("x->" "trawl") [ "net2" ("x->" "millions-remaining-digit") "millions-remaining-word" ])
-    ("~" ("x->" "trawl") [ "net3" ("x->" "millions-remaining-digit") "millions-remaining-word" ])
-    ("~" ("x->" "trawl") [ "net4" ("x->" "millions-remaining-digit") "millions-remaining-word" ])
-    ("~" ("x->" "trawl") [ "net5" ("x->" "millions-remaining-digit") "millions-remaining-word" ])
+    ("TRAWL" ["net1" ("x->" "millions-remaining-digit") "millions-remaining-word"])
+    ("TRAWL" ["net2" ("x->" "millions-remaining-digit") "millions-remaining-word"])
+    ("TRAWL" ["net3" ("x->" "millions-remaining-digit") "millions-remaining-word"])
+    ("TRAWL" ["net4" ("x->" "millions-remaining-digit") "millions-remaining-word"])
+    ("TRAWL" ["net5" ("x->" "millions-remaining-digit") "millions-remaining-word"])
     ("</3" "millions-remaining-word")
 
     `Combine words`

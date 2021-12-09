@@ -19,13 +19,14 @@
 ("x<-" "trawl" ("[o]->" "app/trawl.txt")) ("<3" "trawl")
 
 `Run each sub-script as a net to match numbers within their ranges`
+("^" "TRAWL" ("x->" "trawl"))
 ("x<-" "text" "") ("<3" "text")
-("~" ("x->" "trawl") [ "net1" ("x->" "number") "text" ]) `[0-9]`
-("~" ("x->" "trawl") [ "net2" ("x->" "number") "text" ]) `[10-19]`
-("~" ("x->" "trawl") [ "net3" ("x->" "number") "text" ]) `[20-99]`
-("~" ("x->" "trawl") [ "net4" ("x->" "number") "text" ]) `[100-999]`
-("~" ("x->" "trawl") [ "net5" ("x->" "number") "text" ]) `[1000-999999]`
-("~" ("x->" "trawl") [ "net6" ("x->" "number") "text" ]) `[1000000-999999999]`
+("TRAWL" ["net1" ("x->" "number") "text"]) `[0-9]`
+("TRAWL" ["net2" ("x->" "number") "text"]) `[10-19]`
+("TRAWL" ["net3" ("x->" "number") "text"]) `[20-99]`
+("TRAWL" ["net4" ("x->" "number") "text"]) `[100-999]`
+("TRAWL" ["net5" ("x->" "number") "text"]) `[1000-999999]`
+("TRAWL" ["net6" ("x->" "number") "text"]) `[1000000-999999999]`
 
 `Return any matched text`
 ("x->" "text")

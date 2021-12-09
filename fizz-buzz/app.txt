@@ -16,7 +16,7 @@
 ("o"
   ("<" ("x->" "turn") ("+" ("x->" "goal") #1#))
   ("..."
-    `Store divisiblity tests`
+    `Store divisibility tests`
     ("x<-" "/3" ("!" ("%" ("x->" "turn") #3#)))
     ("x<-" "/5" ("!" ("%" ("x->" "turn") #5#)))
 

@@ -5,6 +5,8 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
+("^" "TRAWL" ("x->" "trawl"))
+
 ("?"
   ("&" (">" ("x->" "source") #19#) ("<" ("x->" "source") #100#))
   ("..."
@@ -31,7 +33,7 @@
     ("x<-" "ones-digit" ("#" ("$->" ("\"" ("x->" "source")) #2#)))
     ("x<-" "ones-word" "")
     ("<3" "ones-word")
-    ("~" ("x->" "trawl") [ "net1" ("x->" "ones-digit") "ones-word" ])
+    ("TRAWL" ["net1" ("x->" "ones-digit") "ones-word"])
     ("</3" "ones-word")
 
     `Combine words`
