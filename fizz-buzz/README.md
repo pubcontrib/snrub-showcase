@@ -1,8 +1,10 @@
 # fizz-buzz
+
 > Program which takes a counting number (0, 1, 2, ...) and returns that many
 > turns in the game of FizzBuzz.
 
 ## Rules
+
 The game of FizzBuzz is a simple counting game to help young mathematicians
 learn about divisibility. The player starts at the number one and counts upwards
 applying these rules with each number:
@@ -14,11 +16,11 @@ applying these rules with each number:
 
 For example if the game was played for 5 turns you should hear the player say:
 
-1.  "One"
-2.  "Two"
-3.  "Fizz"
-4.  "Four"
-5.  "Buzz"
+1. "One"
+2. "Two"
+3. "Fizz"
+4. "Four"
+5. "Buzz"
 
 The game can be played solo where a judge listens for each response failing the
 player if they take too long or give a wrong answer. For more of a challenge the
@@ -28,25 +30,24 @@ will keep things simple. You tell the computer player how many turns it should
 go for and it will give you all of the correct responses in order.
 
 ## Running
+
 A Shell script is included to provide a conversational interface for the
 fizz-buzz program. This is included purely for convenience. Assuming both `sh`
 and `snrub` are both available by those names you can run the program by
 executing the prompt script.
-```sh
-sh prompt.sh
-```
+
+    sh prompt.sh
 
 If you'd like to run the program directly, you can invoke the `snrub` program
 directly with the entry script and number as arguments.
-```sh
-snrub -f app.txt "#100#"
-```
+
+    snrub -f app.txt "#100#"
 
 ## Testing
+
 Testing can be an automated way to verify your version of `snrub` executes this
 program's scripts correctly.
-```sh
-snrub -f test.txt
-```
 
-Last tested with Snrub version `v0.74.2`.
+    snrub -f test.txt
+
+Last tested with Snrub version `v0.74.5`.
