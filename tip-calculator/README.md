@@ -9,7 +9,7 @@
 If you'd like to run the program directly, you can invoke the `snrub` program
 directly with the entry script and number as arguments.
 
-    snrub -f app.txt "[#15000# #20# #2#]"
+    snrub -f app.txt '{"bill" #15000# "tip" #20# "scale" #2#}'
 
 ## Testing
 
