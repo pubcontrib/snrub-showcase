@@ -5,7 +5,11 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
-("^" "TRAWL" ("x->" "trawl"))
+("()^" "NET1")
+("()^" "NET2")
+("()^" "NET3")
+("()^" "NET4")
+("()^" "NET5")
 
 ("?"
   (">" ("x->" "source") #999999#)
@@ -23,13 +27,10 @@
       )
     )
 
-    ("x<-" "millions-word" "")
-    ("<3" "millions-word")
-    ("TRAWL" ["net1" ("x->" "millions-digit") "millions-word"])
-    ("TRAWL" ["net2" ("x->" "millions-digit") "millions-word"])
-    ("TRAWL" ["net3" ("x->" "millions-digit") "millions-word"])
-    ("TRAWL" ["net4" ("x->" "millions-digit") "millions-word"])
-    ("</3" "millions-word")
+    ("x<-" "millions-word" ("NET1" ("x->" "millions-digit")) ?)
+    ("?" ("=" ("x->" "millions-word") "") ("x<-" "millions-word" ("NET2" ("x->" "millions-digit"))) ?)
+    ("?" ("=" ("x->" "millions-word") "") ("x<-" "millions-word" ("NET3" ("x->" "millions-digit"))) ?)
+    ("?" ("=" ("x->" "millions-word") "") ("x<-" "millions-word" ("NET4" ("x->" "millions-digit"))) ?)
 
     `Find the remaining word`
     ("x<-" "millions-remaining-digit"
@@ -42,14 +43,11 @@
       )
     )
 
-    ("x<-" "millions-remaining-word" "")
-    ("<3" "millions-remaining-word")
-    ("TRAWL" ["net1" ("x->" "millions-remaining-digit") "millions-remaining-word"])
-    ("TRAWL" ["net2" ("x->" "millions-remaining-digit") "millions-remaining-word"])
-    ("TRAWL" ["net3" ("x->" "millions-remaining-digit") "millions-remaining-word"])
-    ("TRAWL" ["net4" ("x->" "millions-remaining-digit") "millions-remaining-word"])
-    ("TRAWL" ["net5" ("x->" "millions-remaining-digit") "millions-remaining-word"])
-    ("</3" "millions-remaining-word")
+    ("x<-" "millions-remaining-word" ("NET1" ("x->" "millions-remaining-digit")) ?)
+    ("?" ("=" ("x->" "millions-remaining-word") "") ("x<-" "millions-remaining-word" ("NET2" ("x->" "millions-remaining-digit"))) ?)
+    ("?" ("=" ("x->" "millions-remaining-word") "") ("x<-" "millions-remaining-word" ("NET3" ("x->" "millions-remaining-digit"))) ?)
+    ("?" ("=" ("x->" "millions-remaining-word") "") ("x<-" "millions-remaining-word" ("NET4" ("x->" "millions-remaining-digit"))) ?)
+    ("?" ("=" ("x->" "millions-remaining-word") "") ("x<-" "millions-remaining-word" ("NET5" ("x->" "millions-remaining-digit"))) ?)
 
     `Combine words`
     ("?"

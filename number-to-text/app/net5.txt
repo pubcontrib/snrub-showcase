@@ -5,7 +5,10 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
-("^" "TRAWL" ("x->" "trawl"))
+("()^" "NET1")
+("()^" "NET2")
+("()^" "NET3")
+("()^" "NET4")
 
 ("?"
   ("&" (">" ("x->" "source") #999#) ("<" ("x->" "source") #1000000#))
@@ -23,13 +26,10 @@
       )
     )
 
-    ("x<-" "thousands-word" "")
-    ("<3" "thousands-word")
-    ("TRAWL" ["net1" ("x->" "thousands-digit") "thousands-word"])
-    ("TRAWL" ["net2" ("x->" "thousands-digit") "thousands-word"])
-    ("TRAWL" ["net3" ("x->" "thousands-digit") "thousands-word"])
-    ("TRAWL" ["net4" ("x->" "thousands-digit") "thousands-word"])
-    ("</3" "thousands-word")
+    ("x<-" "thousands-word" ("NET1" ("x->" "thousands-digit")) ?)
+    ("?" ("=" ("x->" "thousands-word") "") ("x<-" "thousands-word" ("NET2" ("x->" "thousands-digit"))) ?)
+    ("?" ("=" ("x->" "thousands-word") "") ("x<-" "thousands-word" ("NET3" ("x->" "thousands-digit"))) ?)
+    ("?" ("=" ("x->" "thousands-word") "") ("x<-" "thousands-word" ("NET4" ("x->" "thousands-digit"))) ?)
 
     `Find the remaining word`
     ("x<-" "thousands-remaining-digit"
@@ -42,13 +42,10 @@
       )
     )
 
-    ("x<-" "thousands-remaining-word" "")
-    ("<3" "thousands-remaining-word")
-    ("TRAWL" ["net1" ("x->" "thousands-remaining-digit") "thousands-remaining-word"])
-    ("TRAWL" ["net2" ("x->" "thousands-remaining-digit") "thousands-remaining-word"])
-    ("TRAWL" ["net3" ("x->" "thousands-remaining-digit") "thousands-remaining-word"])
-    ("TRAWL" ["net4" ("x->" "thousands-remaining-digit") "thousands-remaining-word"])
-    ("</3" "thousands-remaining-word")
+    ("x<-" "thousands-remaining-word" ("NET1" ("x->" "thousands-remaining-digit")) ?)
+    ("?" ("=" ("x->" "thousands-remaining-word") "") ("x<-" "thousands-remaining-word" ("NET2" ("x->" "thousands-remaining-digit"))) ?)
+    ("?" ("=" ("x->" "thousands-remaining-word") "") ("x<-" "thousands-remaining-word" ("NET3" ("x->" "thousands-remaining-digit"))) ?)
+    ("?" ("=" ("x->" "thousands-remaining-word") "") ("x<-" "thousands-remaining-word" ("NET4" ("x->" "thousands-remaining-digit"))) ?)
 
     `Combine words`
     ("?"

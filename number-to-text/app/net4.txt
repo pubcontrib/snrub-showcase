@@ -5,26 +5,22 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
-("^" "TRAWL" ("x->" "trawl"))
+("()^" "NET1")
+("()^" "NET2")
+("()^" "NET3")
 
 ("?"
   ("&" (">" ("x->" "source") #99#) ("<" ("x->" "source") #1000#))
   ("..."
     `Find the hundreds word`
     ("x<-" "hundreds-digit" ("#" ("$->" ("\"" ("x->" "source")) #1#)))
-    ("x<-" "hundreds-word" "")
-    ("<3" "hundreds-word")
-    ("TRAWL" ["net1" ("x->" "hundreds-digit") "hundreds-word"])
-    ("</3" "hundreds-word")
+    ("x<-" "hundreds-word" ("NET1" ("x->" "hundreds-digit")) ?)
 
     `Find the tens word`
     ("x<-" "tens-digit" ("#" ("[# #]" ("\"" ("x->" "source")) #2# #3#)))
-    ("x<-" "tens-word" "")
-    ("<3" "tens-word")
-    ("TRAWL" ["net1" ("x->" "tens-digit") "tens-word"])
-    ("TRAWL" ["net2" ("x->" "tens-digit") "tens-word"])
-    ("TRAWL" ["net3" ("x->" "tens-digit") "tens-word"])
-    ("</3" "tens-word")
+    ("x<-" "tens-word" ("NET1" ("x->" "tens-digit")) ?)
+    ("?" ("=" ("x->" "tens-word") "") ("x<-" "tens-word" ("NET2" ("x->" "tens-digit"))) ?)
+    ("?" ("=" ("x->" "tens-word") "") ("x<-" "tens-word" ("NET3" ("x->" "tens-digit"))) ?)
 
     `Combine words`
     ("?"

@@ -5,7 +5,7 @@
 ("x<-" "source" ("x->" "@"))
 ("x<-" "destination" "")
 
-("^" "TRAWL" ("x->" "trawl"))
+("()^" "NET1")
 
 ("?"
   ("&" (">" ("x->" "source") #19#) ("<" ("x->" "source") #100#))
@@ -31,10 +31,7 @@
 
     `Find the ones word`
     ("x<-" "ones-digit" ("#" ("$->" ("\"" ("x->" "source")) #2#)))
-    ("x<-" "ones-word" "")
-    ("<3" "ones-word")
-    ("TRAWL" ["net1" ("x->" "ones-digit") "ones-word"])
-    ("</3" "ones-word")
+    ("x<-" "ones-word" ("NET1" ("x->" "ones-digit")))
 
     `Combine words`
     ("?"

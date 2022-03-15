@@ -3,8 +3,8 @@
 `
 
 `Cache sub-scripts to avoid repeated file reads`
-("^" "ASSERT" ("[o]->" "test/assert.txt"))
-("^" "APP" ("[o]->" "app.txt"))
+("()<-" "ASSERT" ("[o]->" "test/assert.txt"))
+("()<-" "APP" ("[o]->" "app.txt"))
 
 `Success cases`
 ("ASSERT" [#3000# ("APP" {"bill" #15000#})])
