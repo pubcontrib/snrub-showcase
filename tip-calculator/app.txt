@@ -40,4 +40,28 @@
 `Compute and return the adjusted amount`
 ("x<-" "amount" ("*" ("x->" "bill") ("x->" "tip")))
 ("x<-" "amount" ("/" ("x->" "amount") ("x->" "adjustment")))
-("x->" "amount")
+
+`Convert fixed-point number to string representation`
+("x<-" "digits" ("\"" ("x->" "amount")))
+("o"
+  ("<" ("| |" ("x->" "digits")) ("+" ("x->" "scale") #1#))
+  ("x<-" "digits" ("+" "0" ("x->" "digits")))
+)
+
+("x<-" "string" "")
+("x<-" "limit" ("+" ("| |" ("x->" "digits")) #1#))
+("x<-" "index" #1#)
+("o"
+  ("<" ("x->" "index") ("x->" "limit"))
+  ("..."
+    ("?"
+      ("=" ("x->" "index") ("-" ("x->" "limit") ("x->" "scale")))
+      ("x<-" "string" ("+" ("x->" "string") "."))
+      ?
+    )
+    ("x<-" "string" ("+" ("x->" "string") ("$->" ("x->" "digits") ("x->" "index"))))
+    ("x<-" "index" ("+" ("x->" "index") #1#))
+  )
+)
+
+("x->" "string")

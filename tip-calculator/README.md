@@ -6,8 +6,8 @@
 
 ## Running
 
-If you'd like to run the program directly, you can invoke the `snrub` program
-directly with the entry script and number as arguments.
+To run the program you must invoke the `snrub` program directly with the entry
+script and a map of arguments.
 
     snrub -f app.txt '{"bill" #15000# "tip" #20# "scale" #2#}'
 
@@ -18,4 +18,4 @@ program's scripts correctly.
 
     snrub -f test.txt
 
-Last tested with Snrub version `v0.78.0`.
+Last tested with Snrub version `v0.80.2`.

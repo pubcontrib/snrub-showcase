@@ -50,4 +50,4 @@ program's scripts correctly.
 
     snrub -f test.txt
 
-Last tested with Snrub version `v0.78.0`.
+Last tested with Snrub version `v0.80.2`.

@@ -7,14 +7,19 @@
 ("()<-" "APP" ("[o]->" "app.txt"))
 
 `Success cases`
-("ASSERT" [#3000# ("APP" {"bill" #15000#})])
-("ASSERT" [#3000# ("APP" {"bill" #15000# "tip" #20#})])
-("ASSERT" [#3000# ("APP" {"bill" #15000# "tip" #20# "scale" #2#})])
-("ASSERT" [#100# ("APP" {"bill" #10000# "tip" #1# "scale" #2#})])
-("ASSERT" [#1000# ("APP" {"bill" #10000# "tip" #10# "scale" #2#})])
-("ASSERT" [#10000# ("APP" {"bill" #10000# "tip" #100# "scale" #2#})])
-("ASSERT" [#100# ("APP" {"bill" #1000# "tip" #1# "scale" #1#})])
-("ASSERT" [#1000# ("APP" {"bill" #1000# "tip" #10# "scale" #1#})])
+("ASSERT" ["30.00" ("APP" {"bill" #15000#})])
+("ASSERT" ["30.00" ("APP" {"bill" #15000# "tip" #20#})])
+("ASSERT" ["30.00" ("APP" {"bill" #15000# "tip" #20# "scale" #2#})])
+("ASSERT" ["1.00" ("APP" {"bill" #10000# "tip" #1# "scale" #2#})])
+("ASSERT" ["10.00" ("APP" {"bill" #10000# "tip" #10# "scale" #2#})])
+("ASSERT" ["100.00" ("APP" {"bill" #10000# "tip" #100# "scale" #2#})])
+("ASSERT" ["10.0" ("APP" {"bill" #1000# "tip" #1# "scale" #1#})])
+("ASSERT" ["100.0" ("APP" {"bill" #1000# "tip" #10# "scale" #1#})])
+("ASSERT" ["0.05" ("APP" {"bill" #100# "tip" #5# "scale" #2#})])
+("ASSERT" ["0.50" ("APP" {"bill" #100# "tip" #50# "scale" #2#})])
+("ASSERT" ["1.50" ("APP" {"bill" #100# "tip" #150# "scale" #2#})])
+("ASSERT" ["0.00" ("APP" {"bill" #0# "tip" #100# "scale" #2#})])
+("ASSERT" ["0.00" ("APP" {"bill" #10000# "tip" #0# "scale" #2#})])
 
 `Failure cases`
 ("ASSERT" [#4# ("><" ("APP" ?))])
