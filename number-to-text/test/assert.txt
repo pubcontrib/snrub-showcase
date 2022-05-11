@@ -2,8 +2,8 @@
   This script will check if two objects are equal otherwise throw an error.
 `
 
-("x<-" "expected" ("$->" ("x->" "@") #1#))
-("x<-" "actual" ("$->" ("x->" "@") #2#))
+("x<-" "expected" ("@"))
+("x<-" "actual" ("@"))
 
 ("?"
   ("!" ("=" ("x->" "expected") ("x->" "actual")))

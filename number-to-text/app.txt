@@ -4,7 +4,7 @@
 `
 
 `Store program arguments`
-("x<-" "number" ("x->" "@"))
+("x<-" "number" ("@"))
 
 `Error if the number is negative`
 ("?" ("<" ("x->" "number") #0#) ("<>" #3#) ?)

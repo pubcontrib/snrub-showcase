@@ -4,7 +4,7 @@
 `
 
 `Store program arguments`
-("x<-" "goal" ("x->" "@"))
+("x<-" "goal" ("@"))
 
 `Error if the goal is negative`
 ("?" ("<" ("x->" "goal") #0#) ("<>" #3#) ?)

@@ -2,7 +2,7 @@
   This script will match numbers that are between 1000000 and 999999999.
 `
 
-("x<-" "source" ("x->" "@"))
+("x<-" "source" ("@"))
 ("x<-" "destination" "")
 
 ("()^" "NET1")

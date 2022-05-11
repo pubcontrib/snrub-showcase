@@ -5,9 +5,10 @@
 `
 
 `Store program arguments`
-("x<-" "bill" ("$->" ("x->" "@") "bill"))
-("x<-" "tip" ("$->" ("x->" "@") "tip"))
-("x<-" "scale" ("$->" ("x->" "@") "scale"))
+("x<-" "arguments" ("@"))
+("x<-" "bill" ("$->" ("x->" "arguments") "bill"))
+("x<-" "tip" ("$->" ("x->" "arguments") "tip"))
+("x<-" "scale" ("$->" ("x->" "arguments") "scale"))
 
 `Set default values if they are missing`
 ("?" ("=" ("x->" "tip") ?) ("x<-" "tip" #20#) ?)

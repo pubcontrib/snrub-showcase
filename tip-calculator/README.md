@@ -18,4 +18,4 @@ program's scripts correctly.
 
     snrub -f test.txt
 
-Last tested with Snrub version `v0.80.2`.
+Last tested with Snrub version `v0.82.0`.
